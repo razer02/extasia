@@ -8,6 +8,8 @@ bot.on('ready', function() {
     console.log("Connected");
 });
 
+bot.login(process.env.TOEKN)
+
 bot.on('message', message => {
 
 bot.on("guildMemberAdd", member => {
@@ -23,7 +25,7 @@ bot.on('guildMemberAdd', member => {
     member.addRole(role)
 })
 
-bot.login(process.env.TOEKN);
+;
 
 bot.on('message', message => {
     if (message.content === prefix + "help"){
