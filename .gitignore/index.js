@@ -13,11 +13,11 @@ bot.login("process.env.TOKEN");
 bot.on('message', message => {
 
 bot.on("guildMemberAdd", member => {
-    member.guild.channels.find("name", "bienvenue").send(`Bienvenue`)
+    member.guild.channels.find("name", "général").send(`Bienvenue`)
 })
 
 bot.on("guildMemberRemove", member => {
-    member.guild.channels.find("name", "bienvenue").send(`${member} vient de partir`)
+    member.guild.channels.find("name", "général").send(`${member} vient de partir`)
 })
 
 bot.on('guildMemberAdd', member => {
