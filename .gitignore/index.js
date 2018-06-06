@@ -25,3 +25,13 @@ bot.on('message', message => {
         console.log("Commande Etat effectué");
     }
 });
+
+bot.on('message', message => {
+
+bot.on("guildMemberAdd", member => {
+    member.guild.channels.find("name", "test").send(`Bienvenue`)
+})
+
+bot.on("guildMemberRemove", member => {
+    member.guild.channels.find("name", "test").send(`${member} vient de partir`)
+})
