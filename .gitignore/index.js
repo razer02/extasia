@@ -10,6 +10,16 @@ bot.on('ready', function() {
 
 bot.login(process.env.TOKEN);
 
+bot.on("guildMemberAdd", member => {
+    let role = member.guild.roles.find("name", "ADMIN");
+    member.guild.channels.find("name", "test").send(`Bienvenue ${member.user.username} sur Extasia`)
+    member.addRole("name", "ADMIN")
+})
+
+bot.on("guildMemberRemove"), member => {
+    member.guild.channels.find("name", "test").send(`${member.user.username} vient de partir du serveur`)
+})
+
 bot.on('message', message => {
     if (message.content === prefix + "help"){
         message.channel.sendMessage("Liste des commandes: \n - *help")
