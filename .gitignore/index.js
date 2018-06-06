@@ -22,6 +22,6 @@ bot.on('message', message => {
 
     if (message.content === "ça va ?"){
         message.reply("Très bien et toi ?");
-        console.log("Commande Etat effectué);
+        console.log("Commande Etat effectué");
     }
 });
