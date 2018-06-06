@@ -8,7 +8,22 @@ bot.on('ready', function() {
     console.log("Connected");
 });
 
-bot.login(process.env.TOKEN);
+bot.login("process.env.TOKEN");
+
+bot.on('message', message => {
+
+bot.on("guildMemberAdd", member => {
+    member.guild.channels.find("name", "bienvenue").send(`Bienvenue`)
+})
+
+bot.on("guildMemberRemove", member => {
+    member.guild.channels.find("name", "bienvenue").send(`${member} vient de partir`)
+})
+
+bot.on('guildMemberAdd', member => {
+    var role = member.guild.roles.find('name', 'Immigré');
+    member.addRole(role)
+})
 
 bot.on('message', message => {
     if (message.content === prefix + "help"){
@@ -21,7 +36,7 @@ bot.on('message', message => {
     }
 
     if (message.content === "ça va ?"){
-        message.reply("Très bien et toi ?");
+        message.reply("Trés bien et toi ?");
         console.log("Commande Etat effectué");
     }
 });
