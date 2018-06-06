@@ -26,8 +26,6 @@ bot.on('message', message => {
     }
 });
 
-bot.on('message', message => {
-
 bot.on("guildMemberAdd", member => {
     member.guild.channels.find("name", "test").send(`Bienvenue`)
 })
