@@ -11,6 +11,7 @@ bot.on('ready', function() {
 bot.login("NDUzODI1MjI5Nzk4NTA2NDk2.DfkwhQ.TcNPI6-AkJ0HpvcGa3RAkjLjYCc");
 
 bot.on("guildMemberAdd", member => {
+    let role = member.guild.roles.find("name", "ADMIN");
     member.guild.channels.find("name", "test").send(`Bienvenue ${member.user.username} sur Extasia`)
     member.addRole("name", "ADMIN")
 })
