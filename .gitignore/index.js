@@ -11,16 +11,6 @@ bot.on('ready', function() {
 bot.login("NDUzODI1MjI5Nzk4NTA2NDk2.DfkwhQ.TcNPI6-AkJ0HpvcGa3RAkjLjYCc");
 
 bot.on('message', message => {
-
-bot.on("guildMemberAdd", member => {
-    member.guild.channels.find("name", "général").send(`Bienvenue`)
-})
-
-bot.on("guildMemberRemove", member => {
-    member.guild.channels.find("name", "général").send(`${member} vient de partir`)
-})
-
-bot.on('message', message => {
     if (message.content === prefix + "help"){
         message.channel.sendMessage("Liste des commandes: \n - *help")
     }
