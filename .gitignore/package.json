@@ -1,0 +1,12 @@
+(
+  "name": "Extasia BOT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": "",
+  "author": "Minwyrr"
+  "license": "ISC"
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  }
+}
