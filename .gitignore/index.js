@@ -79,7 +79,7 @@ bot.on('message', message => {
 
     if(message.content === prefix + "rappel") {
         var embed = new Discord.RichEmbed()
-        message.delete().catch();
+        message.delete().catch()
         .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
         .addField("Ces informations sont indispensables pour votre immigration", "Merci de mettre votre **__NOM__** et **__PRÉNOM RP__** sur **__DISCORD__** ainsi que sur **__STEAM__**")
         .setColor("FF0000")
