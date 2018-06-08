@@ -47,7 +47,7 @@ bot.on('message', message => {
     
     if (message.content.startsWith(prefix + "sondage")) {
         message.delete()
-        if(message.author.id == "216241946190938112", "384801569432010753"){
+        if(message.author.id == "216241946190938112", "361555840735379466", "273565071420948480", "442330562875883530", "309270263772610563", "304676544209616896", "278196855551033344", "306525998697021442"){
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
             var embed = new Discord.RichEmbed()
@@ -82,7 +82,7 @@ bot.on('message', message => {
 
     if(message.content === prefix + "rappel") {
         message.delete()
-        if(message.author.id == "216241946190938112") {
+        if(message.author.id == "216241946190938112", "361555840735379466", "273565071420948480", "442330562875883530", "309270263772610563", "304676544209616896", "278196855551033344", "306525998697021442") {
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
             var embed = new Discord.RichEmbed()
@@ -98,7 +98,7 @@ bot.on('message', message => {
 bot.on('message', message => {
     if (message.content.startsWith(prefix + "say")) {
         message.delete()
-        if(message.author.id == "216241946190938112"){
+        if(message.author.id == "216241946190938112", "361555840735379466", "273565071420948480", "442330562875883530", "309270263772610563", "304676544209616896", "278196855551033344", "306525998697021442"){
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
             var embed = new Discord.RichEmbed()
