@@ -92,7 +92,7 @@ bot.on("message", async (message) => {
             const text = args.slice(1).join(" ");
             //const colour = args.slice(2).join("");
             const embed = new Discord.RichEmbed()
-            .setColor("0x" + color)
+            .setColor("FF0000")
             .setTitle("Annonce importante:")
             .setDescription(text);
             message.channel.send("@everyone")
