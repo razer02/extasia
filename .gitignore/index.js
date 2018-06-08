@@ -79,7 +79,7 @@ bot.on('message', message => {
 
 bot.on('message', message => {
 
-    if(!message.member.hasPermission("ADMINISTRATOR")) return 
+    if(!message.member.hasPermission("ADMINISTRATOR")) return; 
     if(message.content === prefix + "rappel") {
         message.delete()
         var embed = new Discord.RichEmbed()
