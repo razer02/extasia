@@ -77,38 +77,33 @@ bot.on('message', message => {
     message.channel.sendEmbed(embed)
 }})
 
-bot.on("message", async (message) => {
-	if (message.author.bot) return;
-	if (!message.content.startsWith(prefix)) return;
-	
-	let command = message.content.split(" ")[0];
-	command = command.slice(prefix.length);
-	
-    let args = message.content.split(" ").slice(1);
-    
-    if (command === "say") {
-        if (message.member.hasPermission("ADMINISTRATOR")) {
-            return message.channel.send("Vous n'avez pas la permission !")
-            const text = args.slice(1).join(" ");
-            //const colour = args.slice(2).join("");
-            const embed = new Discord.RichEmbed()
-            .setColor("FF0000")
-            .setTitle("Annonce importante:")
-            .setDescription(text);
-            message.channel.send("@everyone")
-            message.channel.send({embed})
-        }
-    } else
+bot.on('message', message => {
 
-	if (command == "rappel") {
-        if (message.member.hasPermission("ADMINISTRATOR")) {
-            return message.channel.send("Vous n'avez pas la permission !")
+    if(message.content === prefix + "rappel") {
         message.delete()
-		const embed = new Discord.RichEmbed()
+        var embed = new Discord.RichEmbed()
         .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
         .addField("Ces informations sont indispensables pour votre immigration", "Merci de mettre votre **__NOM__** et **__PRÉNOM RP__** sur **__DISCORD__** ainsi que sur **__STEAM__**")
         .setColor("FF0000")
     message.channel.sendEmbed(embed)
-	}
+
+        
+}})
+
+bot.on("message", async (message) => {
+    if (message.author.bot) return;
+    if (!message.content.startsWith(prefix)) return;
+	
+	let command = message.content.split(" ")[0];
+	command = command.slice(prefix.length);
+	
+	let args = message.content.split(" ").slice(1);
+
+	if (command === "say") {
+		message.delete()
+        const embed = new Discord.RichEmbed()
+		.setColor("FF0000")
+		.setDescription(args.join(" "));
+		message.channel.send({embed})
 
 }});
