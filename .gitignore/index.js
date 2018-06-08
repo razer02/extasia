@@ -89,3 +89,23 @@ bot.on('message', message => {
 
         
 }})
+
+
+bot.on("message", async (message) => {
+    if (message.author.bot) return;
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Vous n'avez pas la permission.");
+    if (!message.content.startsWith(prefix)) return;
+	
+	let command = message.content.split(" ")[0];
+	command = command.slice(prefix.length);
+	
+	let args = message.content.split(" ").slice(1);
+
+	if (command === "say") {
+		message.delete()
+        const embed = new Discord.RichEmbed()
+		.setColor("FF0000")
+		.setDescription(args.join(" "));
+		message.channel.send({embed})
+
+}});
