@@ -10,10 +10,10 @@ bot.on('ready', function() {
 bot.login(process.env.TOKEN);
 
 bot.on("guildMemberAdd", member => {
-    let role = member.guild.roles.find("name", "ADMIN");
+    let role = member.guild.roles.find("name", "Immigré");
     member.guild.channels.find("name", "bienvenue").send(`Bienvenue ${member.user.username} sur Extasia RP, merci de lire le règlement, et les informations nécessaires pour la poursuite sur notre serveur discord et pour rejoindre notre serveur GTA RP. 
 Vous pouvez inviter vos amis sur le discord à l'aide du lien suivant :
-https://discord.gg/KXJ5ts9`)
+https://discord.gg/Zw7qQau`)
     member.addRole(role)
 })
 
@@ -54,7 +54,7 @@ bot.on('message', message => {
                 .addField(thingToEcho, "Répondez à la question avec :white_check_mark: ou :x:")
                 .setColor("FF0000T")
                 .setTimestamp()
-            message.guild.channels.find("name", "bienvenue").sendEmbed(embed)
+            message.guild.channels.find("name", "annonce-officielle").sendEmbed(embed)
             .then(function (message) {
                 message.react("✅")
                 message.react("❌")
@@ -69,7 +69,6 @@ bot.on('message', message => {
     if(message.content === prefix + "commandes") {
         var embed = new Discord.RichEmbed()
         .setDescription("__**Les commandes IG**__")
-
         .addField("Ouvrir le coffre d'un véhicule", "[ALT + E]")
         .addField("Ouvrir le menu personnel", "[F5]")
         .setColor("3AFF00")
@@ -78,10 +77,20 @@ bot.on('message', message => {
 
 bot.on('message', message => {
 
-    if(message.content === prefix + "test") {
+    if(message.content === prefix + "rappel") {
         var embed = new Discord.RichEmbed()
         .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
         .addField("Ces informations sont indispensables pour votre immigration", "Merci de mettre votre **__NOM__** et **__PRÉNOM RP__** sur **__DISCORD__** ainsi que sur **__STEAM__**")
         .setColor("FF0000")
     message.channel.sendEmbed(embed)
+        
+    if(message.content === prefix + "say") {
+        // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
+        // To get the "message" itself we join the `args` back into a string with spaces: 
+        const sayMessage = args.join(" ");
+        // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
+        message.delete().catch(O_o=>{}); 
+        // And we get the bot to say the thing: 
+        message.channel.send(sayMessage);
+  }
 }})
