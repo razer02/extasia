@@ -77,20 +77,6 @@ bot.on('message', message => {
     message.channel.sendEmbed(embed)
 }})
 
-bot.on('message', message => {
-
-    if(message.content === prefix + "rappel") {
-        message.delete()
-        var embed = new Discord.RichEmbed()
-        .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
-        .addField("Ces informations sont indispensables pour votre immigration", "Merci de mettre votre **__NOM__** et **__PRÉNOM RP__** sur **__DISCORD__** ainsi que sur **__STEAM__**")
-        .setColor("FF0000")
-    message.channel.sendEmbed(embed)
-
-        
-}})
-
-
 bot.on("message", async (message) => {
     if (message.author.bot) return;
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Vous n'avez pas la permission.");
@@ -107,5 +93,13 @@ bot.on("message", async (message) => {
 		.setColor("FF0000")
 		.setDescription(args.join(" "));
 		message.channel.send({embed})
+		
+    if(message.content === prefix + "rappel") {
+        message.delete()
+        var embed = new Discord.RichEmbed()
+        .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
+        .addField("Ces informations sont indispensables pour votre immigration", "Merci de mettre votre **__NOM__** et **__PRÉNOM RP__** sur **__DISCORD__** ainsi que sur **__STEAM__**")
+        .setColor("FF0000")
+    message.channel.sendEmbed(embed)
 
 }});
