@@ -88,10 +88,8 @@ bot.on("message", async (message) => {
     
     if (command === "say") {
         if (message.member.hasPermission("ADMINISTRATOR")) {
-            const color = args[0]
-                 
+            return message.channel.send("Vous n'avez pas la permission !")
             const text = args.slice(1).join(" ");
-            if (text.length < 1) return message.channel.send("Vous n'avez pas la permission !");
             //const colour = args.slice(2).join("");
             const embed = new Discord.RichEmbed()
             .setColor("0x" + color)
@@ -103,6 +101,8 @@ bot.on("message", async (message) => {
     } else
 
 	if (command == "rappel") {
+        if (message.member.hasPermission("ADMINISTRATOR")) {
+            return message.channel.send("Vous n'avez pas la permission !")
         message.delete()
 		const embed = new Discord.RichEmbed()
         .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
@@ -111,4 +111,4 @@ bot.on("message", async (message) => {
     message.channel.sendEmbed(embed)
 	}
 
-});
+}});
