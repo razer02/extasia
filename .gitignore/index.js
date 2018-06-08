@@ -47,7 +47,7 @@ bot.on('message', message => {
     
     if (message.content.startsWith(prefix + "sondage")) {
         message.delete()
-        if(message.author.id == "216241946190938112"){
+        if(message.author.id == "216241946190938112", "384801569432010753"){
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
             var embed = new Discord.RichEmbed()
@@ -55,7 +55,7 @@ bot.on('message', message => {
                 .addField(thingToEcho, "Répondez à la question avec :white_check_mark: ou :x:")
                 .setColor("FF0000T")
                 .setTimestamp()
-            message.guild.channels.find("name", "annonce-officielle").sendEmbed(embed)
+            message.guild.channels.find("name", "test").sendEmbed(embed)
             .then(function (message) {
                 message.react("✅")
                 message.react("❌")
@@ -63,6 +63,7 @@ bot.on('message', message => {
             });
             }else{
                 return message.reply("Vous n'avez pas la permission.")
+                message.delete()
 }}})
 
 bot.on('message', message => {
@@ -81,29 +82,31 @@ bot.on('message', message => {
 
     if(message.content === prefix + "rappel") {
         message.delete()
-        var embed = new Discord.RichEmbed()
-        .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
-        .addField("Ces informations sont indispensables pour votre immigration", "Merci de mettre votre **__NOM__** et **__PRÉNOM RP__** sur **__DISCORD__** ainsi que sur **__STEAM__**")
-        .setColor("FF0000")
-    message.channel.sendEmbed(embed)
+        if(message.author.id == "216241946190938112") {
+            let args = message.content.split(" ").slice(1);
+            let thingToEcho = args.join(" ")
+            var embed = new Discord.RichEmbed()
+                .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
+                .addField("Ces informations sont indispensables pour votre immigration", "Merci de mettre votre **__NOM__** et **__PRÉNOM RP__** sur **__DISCORD__** ainsi que sur **__STEAM__**")
+                .setColor("FF0000")
+            message.channel.sendEmbed(embed)
+        }else{
+            return message.reply("Vous n'avez pas la permission.")
+            message.delete()
+    }}});
 
-        
-}})
+bot.on('message', message => {
+    if (message.content.startsWith(prefix + "say")) {
+        message.delete()
+        if(message.author.id == "216241946190938112"){
+            let args = message.content.split(" ").slice(1);
+            let thingToEcho = args.join(" ")
+            var embed = new Discord.RichEmbed()
+                .setDescription(thingToEcho)
+                .setColor("FF0000")
+            message.channel.sendEmbed(embed)
+            }else{
+                return message.reply("Vous n'avez pas la permission.")
+                message.delete()
 
-bot.on("message", async (message) => {
-    if (message.author.bot) return;
-    if (!message.content.startsWith(prefix)) return;
-	
-	let command = message.content.split(" ")[0];
-	command = command.slice(prefix.length);
-	
-	let args = message.content.split(" ").slice(1);
-
-	if (command === "say") {
-		message.delete()
-        const embed = new Discord.RichEmbed()
-		.setColor("FF0000")
-		.setDescription(args.join(" "));
-		message.channel.send({embed})
-
-}});
+}}});
