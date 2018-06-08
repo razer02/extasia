@@ -46,10 +46,11 @@ bot.on('message', message => {
         }
     
     if (message.content.startsWith(prefix + "sondage")) {
+        message.delete()
         if(message.author.id == "216241946190938112"){
             let args = message.content.split(" ").slice(1);
             let thingToEcho = args.join(" ")
-            var embed = new Discord.RichEmbed() 
+            var embed = new Discord.RichEmbed()
                 .setDescription("Sondage")
                 .addField(thingToEcho, "Répondez à la question avec :white_check_mark: ou :x:")
                 .setColor("FF0000T")
@@ -67,6 +68,7 @@ bot.on('message', message => {
 bot.on('message', message => {
 
     if(message.content === prefix + "commandes") {
+        message.delete()
         var embed = new Discord.RichEmbed()
         .setDescription("__**Les commandes IG**__")
         .addField("Ouvrir le coffre d'un véhicule", "[ALT + E]")
@@ -78,13 +80,31 @@ bot.on('message', message => {
 bot.on('message', message => {
 
     if(message.content === prefix + "rappel") {
+        message.delete()
         var embed = new Discord.RichEmbed()
-        message.delete().catch()
         .setDescription("**__Rappel : OBLIGATOIRE__** @everyone")
         .addField("Ces informations sont indispensables pour votre immigration", "Merci de mettre votre **__NOM__** et **__PRÉNOM RP__** sur **__DISCORD__** ainsi que sur **__STEAM__**")
         .setColor("FF0000")
     message.channel.sendEmbed(embed)
+
         
 }})
 
+bot.on("message", async (message) => {
+    if (message.author.bot) return;
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Vous n'avez pas la permission.");
+    if (!message.content.startsWith(prefix)) return;
+	
+	let command = message.content.split(" ")[0];
+	command = command.slice(prefix.length);
+	
+	let args = message.content.split(" ").slice(1);
 
+	if (command === "say") {
+		message.delete()
+        const embed = new Discord.RichEmbed()
+		.setColor("FF0000")
+		.setDescription(args.join(" "));
+		message.channel.send({embed})
+
+}});
