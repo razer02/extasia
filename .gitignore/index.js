@@ -92,7 +92,6 @@ bot.on('message', message => {
 
 bot.on("message", async (message) => {
     if (message.author.bot) return;
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Vous n'avez pas la permission.");
     if (!message.content.startsWith(prefix)) return;
 	
 	let command = message.content.split(" ")[0];
