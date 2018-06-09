@@ -75,4 +75,4 @@ bot.on('guildMemberAdd', guildMember => {
 });
 
 // Login du bot
-bot.login('NDUzODI1MjI5Nzk4NTA2NDk2.Df0wrQ.f3rM5_a9kQ91K4_wdsJ5hheZ7XY');
+bot.login('process.env.TOKEN');
